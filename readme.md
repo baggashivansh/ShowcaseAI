@@ -1,3 +1,5 @@
+
+```markdown
 # ShowcaseAI
 
 Made with ❤️ by Shivansh Bagga using Java and open-source technologies.
@@ -26,4 +28,48 @@ Made with ❤️ by Shivansh Bagga using Java and open-source technologies.
 
 ---
 
+## How to Run Locally
+
+1. **Clone the repository:**
+
+   ```
+   git clone https://github.com/baggashivansh/ShowcaseAi.git
+   cd ShowcaseAi
+   ```
+
+2. **Ensure Java 17+ and Maven are installed.**
+
+3. **Build the project:**
+
+   ```
+   mvn clean package
+   ```
+
+4. **Run the application:**
+
+   ```
+   mvn spring-boot:run
+   ```
+
+5. **Access the app in your browser:**
+
+   ```
+   http://localhost:8080
+   ```
+
+6. **Use the app by entering your details and generating AI-enhanced profiles.**
+
+---
+
+**Notes:**
+
+- An internet connection is required for AI API calls.
+- Add your own Cerebras AI API key in `src/main/resources/application.properties`.
+- The `.gitignore` excludes sensitive files like `application.properties` and build artifacts.
+
+---
+
 Made with ❤️ by [Shivansh Bagga](https://github.com/baggashivansh)
+```
+
+***
