@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ShowcaseAI - Transform Your Resume with AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        .form-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">
+                <i class="fas fa-robot me-3"></i>ShowcaseAI
+            </h1>
+            <p class="lead mb-5">Transform your resume into a professional portfolio with AI-powered enhancement</p>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-upload feature-icon text-white"></i>
+                    <h5>Upload Resume</h5>
+                    <p>Paste your resume text or LinkedIn profile</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-magic feature-icon text-white"></i>
+                    <h5>AI Enhancement</h5>
+                    <p>Cerebras AI transforms your content</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-share feature-icon text-white"></i>
+                    <h5>Share Portfolio</h5>
+                    <p>Get a beautiful, shareable profile link</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-lg">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-user-plus me-2"></i>Create Your AI-Enhanced Profile</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="profileForm">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="fullName" class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" id="fullName" required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="email" required />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label for="phone" class="form-label">Phone</label>
+                                        <input type="text" class="form-control" id="phone" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="linkedinUrl" class="form-label">LinkedIn URL</label>
+                                        <input type="url" class="form-control" id="linkedinUrl" placeholder="https://linkedin.com/in/yourprofile" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="githubUrl" class="form-label">GitHub URL</label>
+                                        <input type="url" class="form-control" id="githubUrl" placeholder="https://github.com/yourusername" />
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="portfolioUrl" class="form-label">Portfolio URL</label>
+                                    <input type="url" class="form-control" id="portfolioUrl" placeholder="https://yourportfolio.com" />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="resumeText" class="form-label">Resume/Bio Text *</label>
+                                    <textarea class="form-control" id="resumeText" rows="6" required placeholder="Paste your complete resume text here... AI will enhance it!"></textarea>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="skills" class="form-label">Skills</label>
+                                        <textarea class="form-control" id="skills" rows="3" placeholder="Java, Spring Boot, MySQL, Git..."></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="education" class="form-label">Education</label>
+                                        <textarea class="form-control" id="education" rows="3" placeholder="University, Degree, Year..."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="workExperience" class="form-label">Work Experience</label>
+                                    <textarea class="form-control" id="workExperience" rows="4" placeholder="Job titles, companies, achievements..."></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="projects" class="form-label">Projects</label>
+                                    <textarea class="form-control" id="projects" rows="4" placeholder="Project names, descriptions, technologies..."></textarea>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="achievements" class="form-label">Achievements & Certifications</label>
+                                    <textarea class="form-control" id="achievements" rows="3" placeholder="Awards, certifications, accomplishments..."></textarea>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                        <i class="fas fa-robot me-2"></i>Generate AI-Enhanced Profile
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Creating with AI...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                linkedinUrl: document.getElementById('linkedinUrl').value,
+                githubUrl: document.getElementById('githubUrl').value,
+                portfolioUrl: document.getElementById('portfolioUrl').value,
+                resumeText: document.getElementById('resumeText').value,
+                skills: document.getElementById('skills').value,
+                education: document.getElementById('education').value,
+                workExperience: document.getElementById('workExperience').value,
+                projects: document.getElementById('projects').value,
+                achievements: document.getElementById('achievements').value
+            };
+
+            fetch('/api/create-profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = data.profileUrl;
+                } else {
+                    alert('Error: ' + data.message);
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
