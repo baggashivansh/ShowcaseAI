@@ -28,8 +28,8 @@ Made with ❤️ by ShivanshBagga at the FutureStack GenAI Hackathon
 1. **Clone the repository**
 
    ```
-   git clone https://github.com/baggashivansh/ShowcaseAIx.git
-   cd ShowcaseAIx
+   git clone https://github.com/baggashivansh/ShowcaseAI.git
+   cd ShowcaseAI
    ```
 
 2. **Build the project**
